@@ -15,7 +15,6 @@ texts_quantity = len(TEXTS)
 sep_len = 70
 separator = sep_len*"="
 prev_len = sep_len - 7
-texts_quantity = len(TEXTS)
 
 #Získání vstupů od uživatele
 get_username = input("Zadej uživatelské jméno: ")
