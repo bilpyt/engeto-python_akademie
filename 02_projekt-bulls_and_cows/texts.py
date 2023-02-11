@@ -26,8 +26,7 @@ def text(which_text, iteration=None, b=None, c=None):
         return "Do you want play again? Y/N\n"
     elif which_text == "ask_to_continue":
         return ("You are guessing very long.\n"
-                "If you want to exit, type: X\n"
-                "For continue press Enter.\n")
+                "For exit type \'X\'. For continue press Enter.\n")
     elif which_text == "enter_number":
         return "Enter your number:\n>>> "
     elif which_text == "you_win_tip":

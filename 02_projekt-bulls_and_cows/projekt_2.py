@@ -6,9 +6,6 @@ author: Jan Hlaváček
 e-mail: jan@hlavackovi.net
 discord: Jan H.#7413
 
-Program je napsán tak, že v generovaném čísle
-se mohou číslice opakovat. Hádané číslo tedy může být
-např. 5393, 5555...
 Texty jsou odděleny do samostatného souboru.
 """
 
@@ -21,7 +18,13 @@ def new_hidden_number():
     """
     number = [0, 0, 0, 0]
     for i in range(4):
-        number[i] = int(randint(0,9))
+        while True:
+            num = int(randint(0,9))
+            if num in number or (num == 0 and i == 0):
+                continue
+            else:
+                number[i] = num
+                break
     return(number)
 
 
@@ -82,7 +85,7 @@ def game():
         else:
             if iteration % 5 == 0:
                 ask_to_continue = input(text("ask_to_continue"))
-                if ask_to_continue == "X":
+                if ask_to_continue.capitalize() == "X":
                     break
 
 
@@ -92,9 +95,9 @@ if __name__ == "__main__":
     game()
     while True:
         ask_to_play_again = input(text("ask_to_play_again"))
-        if ask_to_play_again == "Y" or ask_to_play_again == "y":
+        if ask_to_play_again.capitalize() == "Y":
             game()
-        elif ask_to_play_again == "N" or ask_to_play_again == "n":
+        elif ask_to_play_again.capitalize() == "N":
             break
     text("line")
     text("end")
