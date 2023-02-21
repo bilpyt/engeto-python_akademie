@@ -7,59 +7,56 @@ Třetí projekt do Engeto Python Akademie.
 Program slouží k extrahování výsledků okresů z parlamentních voleb v roce 2017 do formátu CSV.
 
 ## Instalace prostředí a knihoven
-```
-python3 projekt_3.py "https://www.volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=11&xnumnuts=6206" "vysledky_vyskov.csv"
-```
+* Nejříve si v místním adresáři vytvoříme z prostředí CLI nové virtuální prostředí:
+   ```
+   python3 -m menv elections-scraper
+   ```
+* Provedeme jeho aktivaci
+   ```
+   source elections-scraper/bin/activate
+   ```
+* Můžeme si zkontrolovat, verzi pip a že náleží našemu virtuálnímu prostředí:
+   ```
+   pip3 --version
+   ```
+* A nainstalujeme potřebné knihovny dle souboru ```requirements.txt```
+   ```
+   pip3 install -r requirements.txt
+   ```
 
 ## Spuštění projektu
+Program spustíme z CLI pomocí souboru ```projekt_3.py``` a dvou povinných argumentů:
+* URL adresa územního celku, jehož výsledky chceme scrapovat.
+* Název výsledného souboru, do kterého budou data uložena.
 
+```
+python3 projekt_3.py <odkaz-uzemniho-celku> <vysledky-soubor.csv>
+```
+## Ukázka projektu
+
+Výsledky hlasování pro okres Vyškov:
+
+1. argument ```https://www.volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=11&xnumnuts=6206```
+2. argument ```vysledky_vyskov.csv```
+
+### Spuštění programu:
 ```
 python3 projekt_3.py "https://www.volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=11&xnumnuts=6206" "vysledky_vyskov.csv"
 ```
-### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+### Průběh stahování
 
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+Stahuji data z vybraného URL https://www.volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=11&xnumnuts=6206
+Ukládám data do souboru vysledky_vyskov.csv
+Ukončuji program election-scraper
 ```
 
-## Help
+### Částečný výstup
 
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
+code	location	registred	envelopes	valid	Občanská demokratická strana	Řád národa - Vlastenecká unie	...
+592897	Bohaté Málkovice	200	111	111	4	0	0	14	0	2	9	0	1	0	0	0	3	0	1	48	1	0	16	0	0	0	0	10	2	0
+592901	Bohdalice-Pavlovice	687	426	422	25	0	0	36	0	19	42	3	0	6	1	1	21	4	6	112	0	1	54	0	3	0	1	87	0	0
+...
 ```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
